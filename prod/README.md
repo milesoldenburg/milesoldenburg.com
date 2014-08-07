@@ -1,0 +1,1 @@
+This directory stores build files, do not manually edit. Run ./build.sh from project root to populate from dev directory.
