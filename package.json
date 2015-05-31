@@ -12,14 +12,15 @@
     "url": "git@github.com:milesoldenburg/milesoldenburg.com.git"
   },
   "devDependencies": {
-    "almond": "^0.3.1",
     "gulp": "^3.8.11",
     "gulp-jscs": "^1.6.0",
     "gulp-jshint": "^1.10.0",
     "gulp-less": "^3.0.3",
-    "gulp-shell": "^0.4.1",
     "gulp-w3cjs": "^0.3.0",
-    "requirejs": "^2.1.17",
-    "run-sequence": "^1.1.0"
+    "gulp-webpack": "^1.4.0",
+    "node-libs-browser": "^0.5.2",
+    "run-sequence": "^1.1.0",
+    "webpack": "^1.9.10",
+    "webpack-dev-server": "^1.9.0"
   }
 }

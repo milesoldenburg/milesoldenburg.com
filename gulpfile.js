@@ -5,14 +5,17 @@ var jshint = require('gulp-jshint');
 var less = require('gulp-less');
 var path = require('path');
 var runSequence = require('run-sequence');
-var shell = require('gulp-shell');
+var webpack = require('webpack');
+var webpackConfig = require('./webpack.config.js');
+var webpackDevServer = require('webpack-dev-server');
+var webpackGulp = require('gulp-webpack');
 var w3cjs = require('gulp-w3cjs');
 
 /**
  * Lints the config files
  */
 gulp.task('lint:config', function(){
-    return gulp.src('./gulpfile.js')
+    return gulp.src([path.join(__dirname, 'gulpfile.js'), path.join(__dirname, 'webpack.config.js')])
         .pipe(jshint())
         .pipe(jshint.reporter('default'))
         .pipe(jshint.reporter('fail'));
@@ -32,7 +35,7 @@ gulp.task('lint:lib', function(){
  * Runs style check on config files
  */
 gulp.task('jscs:config', function(){
-    return gulp.src(path.join(__dirname, 'gulpfile.js'))
+    return gulp.src([path.join(__dirname, 'gulpfile.js'), path.join(__dirname, 'webpack.config.js')])
         .pipe(jscs({
             configPath : '.jscsrc',
             fix : true
@@ -72,18 +75,44 @@ gulp.task('less', function(){
 });
 
 /**
+ * Creates a development server
+ */
+gulp.task('webpack-dev-server', function(){
+    // Modify some webpack config options
+    var config = Object.create(webpackConfig);
+    config.devtool = 'eval';
+    config.debug = true;
+
+    // Start a webpack-dev-server
+    new webpackDevServer(webpack(config), {
+        contentBase : path.join(__dirname, 'lib'),
+        stats : {
+            colors : true
+        }
+    }).listen(8080, 'localhost', function(err){
+        console.log('error', err);
+    });
+});
+
+/**
+ * Builds the final optimized bundle
+ */
+gulp.task('webpack', function(){
+    // Modify some webpack config options
+    var config = Object.create(webpackConfig);
+    config.plugins.push(new webpack.optimize.UglifyJsPlugin());
+
+    return gulp.src(path.join(__dirname, 'lib/js/main.js'))
+        .pipe(webpackGulp(config))
+        .pipe(gulp.dest(path.join(__dirname, 'dist')));
+});
+
+/**
  * Watches for changes in LESS and then triggers the less task
  */
 gulp.task('watch', function(){
     gulp.watch(path.join(__dirname, 'lib/css/styles.less'), ['less']);
 });
-
-/**
- * Runs the require.js build
- */
-gulp.task('requirejs', shell.task([
-    './node_modules/requirejs/bin/r.js -o requirejs-build.js'
-]));
 
 /**
  * Task to run all lint subtasks
@@ -94,5 +123,5 @@ gulp.task('lint', ['lint:config', 'lint:lib', 'jscs:config', 'jscs:lib', 'w3cjs'
  * Default gulp task
  */
 gulp.task('default', function(){
-    runSequence(['lint', 'less'], 'requirejs');
+    runSequence(['lint', 'less'], 'webpack');
 });
