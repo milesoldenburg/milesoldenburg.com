@@ -6,7 +6,7 @@ var less = require('gulp-less');
 var path = require('path');
 var runSequence = require('run-sequence');
 var webpack = require('webpack');
-var webpackConfig = require('./webpack.config.js');
+var webpackConfig = require('./webpack.config');
 var webpackDevServer = require('webpack-dev-server');
 var webpackGulp = require('gulp-webpack');
 var w3cjs = require('gulp-w3cjs');
@@ -78,20 +78,16 @@ gulp.task('less', function(){
  * Creates a development server
  */
 gulp.task('webpack-dev-server', function(){
-    // Modify some webpack config options
-    var config = Object.create(webpackConfig);
-    config.devtool = 'eval';
-    config.debug = true;
-
     // Start a webpack-dev-server
-    new webpackDevServer(webpack(config), {
+    new webpackDevServer(webpack(webpackConfig), {
         contentBase : path.join(__dirname, 'lib'),
+        debug : true,
+        devtool : 'eval',
+        quiet : false,
         stats : {
             colors : true
         }
-    }).listen(8080, 'localhost', function(err){
-        console.log('error', err);
-    });
+    }).listen(8080, 'localhost');
 });
 
 /**

@@ -18,6 +18,7 @@
     "gulp-less": "^3.0.3",
     "gulp-w3cjs": "^0.3.0",
     "gulp-webpack": "^1.4.0",
+    "imports-loader": "^0.6.4",
     "node-libs-browser": "^0.5.2",
     "run-sequence": "^1.1.0",
     "webpack": "^1.9.10",
