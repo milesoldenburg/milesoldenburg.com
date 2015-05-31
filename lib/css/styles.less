@@ -1,5 +1,5 @@
-@import "bootstrap.min.css";
-@import "font-awesome.min.css";
+@import (inline) "bootstrap.min.css";
+@import (inline) "font-awesome.min.css";
 
 @primary: #8AB8A7;
 @secondary: #489C7E;
@@ -47,11 +47,11 @@ p {
     margin: 0 0 25px;
     font-size: 18px;
     line-height: 1.5;
-    
+
     &.normal-margin {
         margin: 0px 0px 10px 0px;
     }
-    
+
     &.no-margin {
         margin: 0px;
     }
@@ -69,7 +69,7 @@ p {
         font-size: 20px;
         line-height: 1.6;
     }
-    
+
     .content-section {
         ul {
             font-size: 20px;
@@ -82,7 +82,7 @@ a {
     -webkit-transition: all .2s ease-in-out;
     -moz-transition: all .2s ease-in-out;
     transition: all .2s ease-in-out;
-    
+
     &:hover,
     &:focus {
         text-decoration: none;
@@ -100,41 +100,41 @@ a {
     text-transform: uppercase;
     font-family: "Ubuntu","Helvetica Neue",Helvetica,Arial,sans-serif;
     background-color: @dark;
-    
+
     .navbar-brand {
         font-weight: 700;
-        
+
         @media(max-width: @screen-sm-min) {
             padding-top: 16px;
         }
-        
+
         &:focus {
             outline: none;
         }
-        
+
         .navbar-toggle {
             padding: 4px 6px;
             font-size: 16px;
             color: @light;
-            
+
             &:focus,
             &:active {
                 outline: none;
             }
         }
     }
-    
+
     a {
         color: @light;
     }
-    
+
     .nav {
         li {
             a {
                 -webkit-transition: background .5s ease-in-out;
                 -moz-transition: background .5s ease-in-out;
                 transition: background .5s ease-in-out;
-                
+
                 &:hover,
                 &:focus,
                 &.active {
@@ -142,14 +142,14 @@ a {
                     background-color: fade(@light, 30%);
                 }
             }
-            
+
             &.active {
                 outline: none;
                 background-color: fade(@light, 30%);
             }
         }
     }
-    
+
     @media (max-width: @screen-sm-min) {
         .navbar-toggle {
             float: left;
@@ -159,16 +159,16 @@ a {
             border-left: 0px;
             border-right-color: #1C3618;
             padding: 17px 14px;
-            
+
             span {
                 background-color: white;
             }
         }
-        
+
         .navbar-toggle:hover {
             background-color: inherit
         }
-        
+
         .navbar-toggle:focus {
             background-color: inherit
         }
@@ -200,17 +200,17 @@ a {
     .navbar-collapse {
         background: @light;
     }
-    
+
     .nav {
         background: @light;
-        
+
         li {
             a {
                 color: @darkNav;
                 -webkit-transition: background .3s ease-in-out;
                 -moz-transition: background .3s ease-in-out;
                 transition: background .3s ease-in-out;
-                
+
                 &:hover,
                 &:focus,
                 &.active {
@@ -235,14 +235,14 @@ a {
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
-    
+
     .intro-body {
         display: table-cell;
         vertical-align: middle;
-        
+
         .brand-heading {
             font-size: 40px;
-            
+
             @media(max-width: 1500px) {
                 color: @dark;
             }
@@ -250,7 +250,7 @@ a {
 
         .intro-text {
             font-size: 18px;
-            
+
             @media(max-width: 600px) {
                 color: @dark;
             }
@@ -262,7 +262,7 @@ a {
     .intro {
         height: 100%;
         padding: 0;
-        
+
         .intro-body {
             .brand-heading {
                 font-size: 100px;
@@ -288,21 +288,21 @@ a {
     -webkit-transition: background .3s ease-in-out;
     -moz-transition: background .3s ease-in-out;
     transition: background .3s ease-in-out;
-    
+
     &:hover,
     &:focus {
         outline: none;
         color: @light;
         background: fade(@light, 10%);
     }
-    
+
     i.animated {
         -webkit-transition-property: -webkit-transform;
         -webkit-transition-duration: 1s;
         -moz-transition-property: -moz-transform;
         -moz-transition-duration: 1s;
     }
-    
+
     &:hover {
         i.animated {
             -webkit-animation-name: pulse;
@@ -317,7 +317,7 @@ a {
     }
 }
 
-@-webkit-keyframes pulse {    
+@-webkit-keyframes pulse {
     0 {
         -webkit-transform: scale(1);
         transform: scale(1);
@@ -334,7 +334,7 @@ a {
     }
 }
 
-@-moz-keyframes pulse {    
+@-moz-keyframes pulse {
     0 {
         -moz-transform: scale(1);
         transform: scale(1);
@@ -353,10 +353,10 @@ a {
 
 .content-section {
     padding: 100px 0px;
-    
+
     .panel-heading {
         font-size: 20px;
-        
+
         em {
             font-size: 85%;
         }
@@ -366,12 +366,12 @@ a {
 #resume {
     background-color: @light;
     color: @dark;
-    
+
     .btn-circle {
         color: @dark;
         border-color: @dark;
     }
-    
+
     padding-top: 100px;
 }
 
@@ -429,7 +429,7 @@ a {
 
 ul.banner-social-buttons {
     margin-top: 0;
-    
+
     li {
         margin-top: 15px;
     }
@@ -486,14 +486,14 @@ body {
 }
 
 .panel-heading.collapsible {
-    
+
 }
 
 .panel-heading.collapsible {
     &:hover {
         cursor: pointer;
     }
-    
+
     a {
         &:after {
             font-family: 'FontAwesome';
@@ -501,7 +501,7 @@ body {
             float: right;
         }
     }
-    
+
     a.collapsed {
         &:after {
             content: "\f078";

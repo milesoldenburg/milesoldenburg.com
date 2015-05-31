@@ -1,4 +1,5 @@
 // Dependencies
+var del = require('del');
 var gulp = require('gulp');
 var jscs = require('gulp-jscs');
 var jshint = require('gulp-jshint');
@@ -77,7 +78,7 @@ gulp.task('less', function(){
 /**
  * Creates a development server
  */
-gulp.task('webpack-dev-server', function(){
+gulp.task('webpack-dev-server', ['less', 'watch'], function(){
     // Start a webpack-dev-server
     new webpackDevServer(webpack(webpackConfig), {
         contentBase : path.join(__dirname, 'lib'),
@@ -104,6 +105,37 @@ gulp.task('webpack', function(){
 });
 
 /**
+ * Copies files from lib to dist
+ */
+gulp.task('copy', function(){
+    gulp.src(path.join(__dirname, 'lib/css/styles.css'))
+        .pipe(gulp.dest(path.join(__dirname, 'dist/css')));
+
+    gulp.src(path.join(__dirname, 'lib/docs/*.*'))
+        .pipe(gulp.dest(path.join(__dirname, 'dist/docs')));
+
+    gulp.src(path.join(__dirname, 'lib/fonts/*.*'))
+        .pipe(gulp.dest(path.join(__dirname, 'dist/fonts')));
+
+    gulp.src(path.join(__dirname, 'lib/images/*.*'))
+        .pipe(gulp.dest(path.join(__dirname, 'dist/images')));
+
+    gulp.src(path.join(__dirname, 'lib/index.html'))
+        .pipe(gulp.dest(path.join(__dirname, 'dist')));
+});
+
+/**
+ * Cleans dist
+ */
+gulp.task('clean', function(){
+    del([
+        'dist/*',
+        '!dist/.gitignore',
+        '!dist/README.md'
+    ]);
+});
+
+/**
  * Watches for changes in LESS and then triggers the less task
  */
 gulp.task('watch', function(){
@@ -119,5 +151,5 @@ gulp.task('lint', ['lint:config', 'lint:lib', 'jscs:config', 'jscs:lib', 'w3cjs'
  * Default gulp task
  */
 gulp.task('default', function(){
-    runSequence(['lint', 'less'], 'webpack');
+    runSequence('clean', ['lint', 'less'], ['copy', 'webpack']);
 });

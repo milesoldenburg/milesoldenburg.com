@@ -12,6 +12,7 @@
     "url": "git@github.com:milesoldenburg/milesoldenburg.com.git"
   },
   "devDependencies": {
+    "del": "^1.2.0",
     "gulp": "^3.8.11",
     "gulp-jscs": "^1.6.0",
     "gulp-jshint": "^1.10.0",

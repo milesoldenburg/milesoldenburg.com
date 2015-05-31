@@ -1,6 +1,4 @@
 .DS_Store
-prod/*
-dev/css/styles.css
-deploy.sh
+lib/css/styles.css
 .idea
 node_modules
