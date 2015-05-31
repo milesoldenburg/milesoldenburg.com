@@ -6,6 +6,7 @@ var jshint = require('gulp-jshint');
 var less = require('gulp-less');
 var path = require('path');
 var runSequence = require('run-sequence');
+var shell = require('gulp-shell');
 var webpack = require('webpack');
 var webpackConfig = require('./webpack.config');
 var webpackDevServer = require('webpack-dev-server');
@@ -143,6 +144,13 @@ gulp.task('watch', function(){
 });
 
 /**
+ * Uploads the site
+ */
+gulp.task('scp', shell.task([
+    'scp -r dist/* milesoldenburg@milesoldenburg.com:~/milesoldenburg.com'
+]));
+
+/**
  * Task to run all lint subtasks
  */
 gulp.task('lint', ['lint:config', 'lint:lib', 'jscs:config', 'jscs:lib', 'w3cjs']);
@@ -151,5 +159,5 @@ gulp.task('lint', ['lint:config', 'lint:lib', 'jscs:config', 'jscs:lib', 'w3cjs'
  * Default gulp task
  */
 gulp.task('default', function(){
-    runSequence('clean', ['lint', 'less'], ['copy', 'webpack']);
+    runSequence('clean', ['lint', 'less'], ['copy', 'webpack'], 'scp');
 });

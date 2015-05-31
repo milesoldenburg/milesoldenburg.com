@@ -17,6 +17,7 @@
     "gulp-jscs": "^1.6.0",
     "gulp-jshint": "^1.10.0",
     "gulp-less": "^3.0.3",
+    "gulp-shell": "^0.4.1",
     "gulp-w3cjs": "^0.3.0",
     "gulp-webpack": "^1.4.0",
     "imports-loader": "^0.6.4",
