@@ -1,10 +1,8 @@
 var path = require('path');
 
 module.exports = {
-    context : path.join(__dirname, 'lib'),
-    entry : {
-        app : ['js/main.js']
-    },
+    context : path.join(__dirname, 'lib/js'),
+    entry : './main.js',
     module : {
         noParse : [
             path.join(__dirname, 'lib/js/lib/bootstrap.min.js'),
@@ -14,6 +12,6 @@ module.exports = {
     },
     output : {
         filename : 'bundle.js',
-        path : path.join(__dirname, 'dist')
+        path : path.join(__dirname, 'lib/js')
     }
 };
