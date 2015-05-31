@@ -2,3 +2,5 @@
 prod/*
 dev/css/styles.css
 deploy.sh
+.idea
+node_modules
