@@ -112,7 +112,7 @@ gulp.task('copy', function(){
     gulp.src(path.join(__dirname, 'lib/css/styles.css'))
         .pipe(gulp.dest(path.join(__dirname, 'dist/css')));
 
-    gulp.src(path.join(__dirname, 'lib/docs/*.*'))
+    gulp.src(path.join(__dirname, 'lib/docs/*.pdf'))
         .pipe(gulp.dest(path.join(__dirname, 'dist/docs')));
 
     gulp.src(path.join(__dirname, 'lib/fonts/*.*'))
@@ -156,8 +156,22 @@ gulp.task('scp', shell.task([
 gulp.task('lint', ['lint:config', 'lint:lib', 'jscs:config', 'jscs:lib', 'w3cjs']);
 
 /**
+ * Builds the resume PDF
+ */
+gulp.task('resume', shell.task([
+    'cd lib/docs && /usr/texbin/pdflatex MilesOldenburg_Resume.tex'
+]));
+
+/**
+ * Monitor resume changes to build PDF
+ */
+gulp.task('watch:resume', function(){
+    gulp.watch('./lib/docs/MilesOldenburg_Resume.tex', ['resume']);
+});
+
+/**
  * Default gulp task
  */
 gulp.task('default', function(){
-    runSequence('clean', ['lint', 'less'], ['copy', 'webpack'], 'scp');
+    runSequence('clean', ['lint', 'less', 'resume'], ['copy', 'webpack'], 'scp');
 });
