@@ -1,0 +1,90 @@
+{
+  "name" : "Miles Oldenburg",
+  "address" : {
+    "line1" : "1119 Dominion Oak Circle",
+    "line2" : "Cary, NC 27519"
+  },
+  "phone" : ["614", "589", "4745"],
+  "email" : "miles@milesoldenburg.com",
+  "education" : [
+    {
+      "school" : "Duke University",
+      "date" : "December 2015",
+      "degree" : "M.S.",
+      "major" : "Electrical %26 Computer Engineering",
+      "location" : "Durham, NC",
+      "coursework" : "Information theory, machine learning, network architecture and security, environmental sensing, computer vision, distributed systems, robotics, and parallel computing.",
+      "accomplishments" : [
+        "Planning and control systems of Baxter Research Robot for ICRA 2015 Amazon Picking Challenge competition",
+        "GPU acceleration of a multi-objective genetic algorithm",
+        "Dynamic image projection using Microsoft Kinect",
+        "Measurement and analysis of NTP Reflection DDoS attacks"
+      ]
+    },
+    {
+      "school" : "The Ohio State University",
+      "date" : "July 2012",
+      "degree" : "B.S.",
+      "major" : "Computer %26 Information Science",
+      "location" : "Columbus, OH",
+      "coursework" : "Systems engineering, database systems, artificial intelligence, computer graphics, architecture, algorithms, and information systems."
+    }
+  ],
+  "experience" : [
+    {
+      "organization" : "Cisco Systems, Inc.",
+      "date" : "July 2012 - Present",
+      "title" : "Engineer",
+      "location" : "Research Triangle Park, NC",
+      "accomplishments" : [
+        "Created application to analyze and forecast reporting structures and provide personnel metrics to assist executives making organizational decisions",
+        "Created JavaScript module for collecting user feedback on services",
+        "Design and build web and mobile applications for operations",
+        "Design automated front and back-end build, test, and deployment processes",
+        "Maintain an internal Bootstrap fork with custom components"
+      ]
+    },
+    {
+      "organization" : "The Ohio State University",
+      "date" : "2007 - 2009",
+      "title" : "Systems Engineer",
+      "location" : "Columbus, OH",
+      "accomplishments" : [
+        "Designed and maintained web sites and applications for Arts and Humanities departments, centers, and faculty",
+        "Created error reporting and SQL injection reporting system",
+        "Created applications for departmental events, directories, news, scheduling, and course listings",
+        "Created a custom lightweight ColdFusion MVC framework for internal applications",
+        "Created accessible web sites for impaired users and sites that adhere to government and validation standards"
+      ]
+    }
+  ],
+  "technicalStrengths" : {
+    "computerLanguages" : ["Java", "C", "C++", "JavaScript", "Python", "PHP", "ColdFusion"],
+    "databases" : ["Oracle", "MySQL", "MongoDB"],
+    "tools" : ["Git", "SVN", "Jenkins", "MATLAB", "Linux/UNIX"]
+  },
+  "certifications" : [
+    {
+      "name" : "Professional Scrum Master I",
+      "organization" : "Scrum.org",
+      "date" : 2012
+    },
+    {
+      "name" : "ITIL IT Service Management",
+      "organization" : "PEOPLECERT",
+      "date" : 2013
+    }
+  ],
+  "training" : [
+    {
+      "name" : "Big Data: Hadoop",
+      "organization" : "Cloudera",
+      "date" : 2013
+    },
+    {
+      "name" : "M101J: MongoDB for Java Developers",
+      "organization" : "10gen",
+      "date" : 2013
+    }
+  ]
+}

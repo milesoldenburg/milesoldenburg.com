@@ -1,4 +1,5 @@
 // Dependencies
+var async = require('async');
 var del = require('del');
 var gulp = require('gulp');
 var jscs = require('gulp-jscs');
@@ -7,6 +8,7 @@ var less = require('gulp-less');
 var path = require('path');
 var runSequence = require('run-sequence');
 var shell = require('gulp-shell');
+var _ = require('underscore');
 var webpack = require('webpack');
 var webpackConfig = require('./webpack.config');
 var webpackDevServer = require('webpack-dev-server');
@@ -153,14 +155,62 @@ gulp.task('scp', shell.task([
 /**
  * Task to run all lint subtasks
  */
-gulp.task('lint', ['lint:config', 'lint:lib', 'jscs:config', 'jscs:lib', 'w3cjs']);
+gulp.task('lint', ['lint:config', 'lint:lib', 'jscs:config', 'jscs:lib']);
+
+/**
+ * Builds the resume .tex file from template and json data
+ */
+gulp.task('resume:prep', function(){
+    var fs = require('fs');
+
+    async.parallel([
+        function(callback){
+            fs.readFile('lib/docs/MilesOldenburg_Resume.utp', 'utf8', function(err, data){
+                if (err) {
+                    callback(err);
+                }
+
+                callback(null, data);
+            });
+        },
+        function(callback){
+            fs.readFile('lib/data/data.json', 'utf8', function(err, data){
+                if (err) {
+                    callback(err);
+                }
+
+                callback(null, JSON.parse(data));
+            });
+        }
+    ],
+    function(err, results){
+        var compiled = _.template(results[0]);
+        var tex = compiled(results[1]);
+        tex = tex.replace(/%26/g, "\\&");
+
+        fs.writeFile('lib/docs/MilesOldenburg_Resume.tex', tex, function(err){
+            if (err) {
+                console.log('Error creating .tex');
+            }
+
+            console.log('Successfully created .tex');
+        });
+    });
+});
 
 /**
  * Builds the resume PDF
  */
-gulp.task('resume', shell.task([
+gulp.task('resume:pdf', shell.task([
     'cd lib/docs && /usr/texbin/pdflatex MilesOldenburg_Resume.tex'
 ]));
+
+/**
+ * Runs resume tasks
+ */
+gulp.task('resume', function(){
+    runSequence('resume:prep', 'resume:pdf');
+});
 
 /**
  * Monitor resume changes to build PDF

@@ -3,5 +3,6 @@ lib/css/styles.css
 lib/docs/*.aux
 lib/docs/*.log
 lib/docs/*.pdf
+lib/docs/*.tex
 .idea
 node_modules

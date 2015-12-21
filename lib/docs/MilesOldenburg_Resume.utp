@@ -1,0 +1,104 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Medium Length Professional CV
+% LaTeX Template
+% Version 2.0 (8/5/13)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Trey Hunner (http://www.treyhunner.com/)
+%
+% Important note:
+% This template requires the resume.cls file to be in the same directory as the
+% .tex file. The resume.cls file provides the resume style used for structuring
+% the document.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%-------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%-------------------------------------------------------------------------------
+
+\documentclass{resume} % Use the custom resume.cls style
+
+\usepackage[left=0.64in,top=0.4in,right=0.64in,bottom=0.5in]{geometry}
+
+\name{<%= name %>}
+\address{<%= address.line1 %> \\ <%= address.line2 %>}
+\address{(<%= phone[0] %>)~$\cdot$~<%= phone[1] %>~$\cdot$~<%= phone[2] %> \\ <%= email %>}
+
+\begin{document}
+
+%-------------------------------------------------------------------------------
+%	EDUCATION SECTION
+%-------------------------------------------------------------------------------
+
+\begin{rSection}{Education}
+
+<% _.each(education, function(element){ %>
+    {\bf <%= element.school %>} \hfill <%= element.date %> \\
+    {\em <%= element.degree %> in <%= element.major %>} \hfill {\em <%= element.location %>}
+    \smallskip \\
+    Coursework: <%= element.coursework %> \smallskip
+
+    <% if (!_.isUndefined(element.accomplishments) && !_.isNull(element.accomplishments) && element.accomplishments.length > 0) { %>
+        \begin{list}{$\cdot$}{\leftmargin=0em}
+        \itemsep -0.5em \vspace{-0.5em}
+        <% _.each(element.accomplishments, function(accomplishment){ %>
+            \item <%= accomplishment %>
+        <% }); %>
+        \end{list}
+    <% } %>
+<% }); %>
+
+\end{rSection}
+
+%-------------------------------------------------------------------------------
+%	WORK EXPERIENCE SECTION
+%-------------------------------------------------------------------------------
+
+\begin{rSection}{Experience}
+
+<% _.each(experience, function(element){ %>
+    \begin{rSubsection}{<%= element.organization %>}{<%= element.date %>}{<%= element.title %>}{<%= element.location %>}
+    <% _.each(element.accomplishments, function(accomplishment){ %>
+        \item <%= accomplishment %>
+    <% }); %>
+    \end{rSubsection}
+<% }); %>
+
+\end{rSection}
+
+%-------------------------------------------------------------------------------
+%	TECHNICAL STRENGTHS SECTION
+%-------------------------------------------------------------------------------
+
+\begin{rSection}{Technical Strengths}
+
+\begin{tabular}{ @{} >{\bfseries}l @{\hspace{6ex}} l }
+Computer Languages & <%= technicalStrengths.computerLanguages.join(', ') %> \\
+Databases & <%= technicalStrengths.databases.join(', ') %> \\
+Tools & <%= technicalStrengths.tools.join(', ') %>
+\end{tabular}
+
+\end{rSection}
+
+%-------------------------------------------------------------------------------
+%	CERTIFICATIONS SECTION
+%-------------------------------------------------------------------------------
+
+\begin{rSection}{Certifications and Training}
+
+\begin{minipage}[t]{0.5\textwidth}
+<% _.each(certifications, function(element, index){ %><%= element.name %> \\
+<%= element.organization %>, <%= element.date %> <% if (index < certifications.length - 1) print('\\smallskip \\\\'); %><% }); %>
+\end{minipage}
+\begin{minipage}[t]{0.45\textwidth}
+<% _.each(training, function(element, index){ %><%= element.name %> \\
+<%= element.organization %>, <%= element.date %> <% if (index < training.length - 1) print('\\smallskip \\\\'); %><% }); %>
+\end{minipage}
+
+\end{rSection}
+
+\end{document}
