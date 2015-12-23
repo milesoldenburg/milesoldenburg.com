@@ -13,12 +13,32 @@
       "degree" : "M.S.",
       "major" : "Electrical %26 Computer Engineering",
       "location" : "Durham, NC",
+      "courses" : [
+        "Information Theory: channel coding, optimization",
+        "Probability and Statistics: performance, reliability, availability, queuing, stochastic modeling",
+        "Machine Learning and Pattern Recognition",
+        "Network Architecture",
+        "Optimal Environmental Sensing",
+        "Computer Vision: Image and Video Processing",
+        "Distributed Systems",
+        "Robotic Perception, Planning, and Control",
+        "Parallel Computing",
+        "Network Security"
+      ],
       "coursework" : "Information theory, machine learning, network architecture and security, environmental sensing, computer vision, distributed systems, robotics, and parallel computing.",
       "accomplishments" : [
         "Planning and control systems of Baxter Research Robot for ICRA 2015 Amazon Picking Challenge competition",
         "GPU acceleration of a multi-objective genetic algorithm",
         "Dynamic image projection using Microsoft Kinect",
         "Measurement and analysis of NTP Reflection DDoS attacks"
+      ],
+      "skills" : [
+        "MATLAB",
+        "C",
+        "Python",
+        "C++",
+        "Java",
+        "Node.js"
       ]
     },
     {
@@ -27,7 +47,19 @@
       "degree" : "B.S.",
       "major" : "Computer %26 Information Science",
       "location" : "Columbus, OH",
-      "coursework" : "Systems engineering, database systems, artificial intelligence, computer graphics, architecture, algorithms, and information systems."
+      "courses" : [
+        "Systems Engineering",
+        "Artificial Intelligence",
+        "Computer Graphics",
+        "Computer Architecture",
+        "Algorithms"
+      ],
+      "coursework" : "Systems engineering, database systems, artificial intelligence, computer graphics, architecture, algorithms, and information systems.",
+      "skills" : [
+        "Java",
+        "C",
+        "C++"
+      ]
     }
   ],
   "experience" : [
@@ -41,7 +73,66 @@
         "Created JavaScript module for collecting user feedback on services",
         "Design and build web and mobile applications for operations",
         "Design automated front and back-end build, test, and deployment processes",
-        "Maintain an internal Bootstrap fork with custom components"
+        "Maintain an internal Bootstrap fork with custom components",
+        "Created mobile applications for support, metrics, and pervasive experience",
+        "Agile project management with Scrum",
+        "Created application to gather and display usage metrics about other applications to assist in resource assignment and retirement of the applications",
+        "Mentor interns and new hires and manage intern projects"
+      ],
+      "skills" : [
+        {
+          "name" : "Java",
+          "libraries" : [
+            "Maven",
+            "Apache Struts",
+            "Spring",
+            "Hibernate"
+          ]
+        },
+        {
+          "name" : "JavaScript",
+          "libraries" : [
+            "jQuery",
+            "Node.js",
+            "Backbone",
+            "Grunt",
+            "Gulp",
+            "Webpack",
+            "Require.js"
+          ]
+        },
+        {
+          "name" : "HTML5"
+        },
+        {
+          "name" : "CSS",
+          "libraries" : [
+            "LESS",
+            "Bootstrap"
+          ]
+        },
+        {
+          "name" : "Version Control",
+          "libraries" : [
+            "git",
+            "svn",
+            "cvs",
+            "Gerrit",
+            "Stash"
+          ]
+        },
+        {
+          "name" : "Continuous Integration",
+          "libraries" : [
+            "Jenkins"
+          ]
+        },
+        {
+          "name" : "Oracle"
+        },
+        {
+          "name" : "Apache Cordova/PhoneGap"
+        }
       ]
     },
     {
@@ -55,6 +146,32 @@
         "Created applications for departmental events, directories, news, scheduling, and course listings",
         "Created a custom lightweight ColdFusion MVC framework for internal applications",
         "Created accessible web sites for impaired users and sites that adhere to government and validation standards"
+      ],
+      "skills" : [
+        {
+          "name" : "ColdFusion"
+        },
+        {
+          "name" : "MSSQL"
+        },
+        {
+          "name" : "PHP",
+          "libraries" : [
+            "Drupal"
+          ]
+        },
+        {
+          "name" : "MySQL"
+        },
+        {
+          "name" : "HTML"
+        },
+        {
+          "name" : "CSS"
+        },
+        {
+          "name" : "JavaScript"
+        }
       ]
     }
   ],
@@ -85,6 +202,154 @@
       "name" : "M101J: MongoDB for Java Developers",
       "organization" : "10gen",
       "date" : 2013
+    },
+    {
+      "name" : "ITIL Foundations",
+      "organization" : "Pink Elephant",
+      "date" : 2013
+    },
+    {
+      "name" : "Building Hybrid Apps With PhoneGap",
+      "organization" : "Jonathan Stark",
+      "date" : 2013
+    },
+    {
+      "name" : "Scrum Boot Camp",
+      "organization" : "Construx",
+      "date" : 2012
+    },
+    {
+      "name" : "Advanced Javascript",
+      "organization" : "Marakana",
+      "date" : 2012
+    },
+    {
+      "name" : "Introductory and Advanced ColdFusion Training",
+      "organization" : "Webucator",
+      "date" : 2008
+    }
+  ],
+  "internships" : [
+    {
+      "organization" : "Goldberg Center, The Department of History, The Ohio State University",
+      "date" : "2009 - 2012",
+      "title" : "Student Web Developer",
+      "location" : "Columbus, OH",
+      "description" : "I designed, developed, and maintained new and existing Web sites and dynamic Web applications. In addition to programming, I assisted faculty and graduate students with instructional media.",
+      "accomplishments" : [
+        "Created an Android application available on the Android Marketplace for accessing the Origins Magazine",
+        "Created a multi-media archival site",
+        "Created a site for distributing instructional materials for teachers",
+        "Created The Humanities Atlas, a visual aggregator that identifies and maps news and activities in the humanities across the country",
+        "Created software that parses text documents and creates images that show parts of speech as blocks of color",
+        "Acted as Interim Web Developer while the full time position was being filled"
+      ],
+      "skills" : [
+        {
+          "name" : "ColdFusion"
+        },
+        {
+          "name" : "MSSQL"
+        },
+        {
+          "name" : "PHP",
+          "libraries" : [
+            "Drupal"
+          ]
+        },
+        {
+          "name" : "MySQL"
+        },
+        {
+          "name" : "HTML"
+        },
+        {
+          "name" : "CSS"
+        },
+        {
+          "name" : "JavaScript"
+        },
+        {
+          "name" : "Android"
+        },
+        {
+          "name" : "Java"
+        },
+        {
+          "name" : "SVN"
+        }
+      ]
+    },
+    {
+      "organization" : "Foreign Language Center, College of Arts and Sciences, The Ohio State University",
+      "date" : "2011 - 2012",
+      "title" : "Graphic Designer / Programmer",
+      "location" : "Columbus, OH",
+      "accomplishments" : [
+        "Created an application to provide online foreign language testing to incoming students",
+        "Created an application to provide an online interactive book to assist students in learning Japanese",
+        "Designed posters and fliers for various events"
+      ],
+      "skills" : [
+        {
+          "name" : "ColdFusion"
+        },
+        {
+          "name" : "MSSQL"
+        },
+        {
+          "name" : "PHP",
+          "libraries" : [
+            "Drupal"
+          ]
+        },
+        {
+          "name" : "MySQL"
+        },
+        {
+          "name" : "HTML"
+        },
+        {
+          "name" : "CSS"
+        },
+        {
+          "name" : "JavaScript"
+        },
+        {
+          "name" : "Adobe Photoshop"
+        },
+        {
+          "name" : "Adobe Illustrator"
+        }
+      ]
+    },
+    {
+      "organization" : "Ohio Learning Network, State of Ohio",
+      "date" : "2010 - 2011",
+      "title" : "Web / Database Assistant",
+      "location" : "Columbus, OH",
+      "accomplishments" : [
+        "Redesigned and refactored the OhioLearns! Catalog according to state government standards",
+        "Designed the policy regarding Subversion and how it should be used for the technology group",
+        "Designed prototypes for the USO Student Portal outlined in the Strategic Plan for Higher Education, exposing the technology group to Drupal"
+      ],
+      "skills" : [
+        {
+          "name" : "PHP",
+          "libraries" : [
+            "Drupal"
+          ]
+        },
+        {
+          "name" : "MySQL"
+        },
+        {
+          "name" : "HTML"
+        },
+        {
+          "name" : "CSS"
+        }
+      ]
     }
   ]
 }
