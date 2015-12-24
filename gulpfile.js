@@ -1,6 +1,7 @@
 // Dependencies
 var async = require('async');
 var del = require('del');
+var fs = require('fs');
 var gulp = require('gulp');
 var jscs = require('gulp-jscs');
 var jshint = require('gulp-jshint');
@@ -56,7 +57,7 @@ gulp.task('jscs:lib', function(){
             configPath : '.jscsrc',
             fix : true
         }))
-        .pipe(gulp.dest(path.join(__dirname, 'lib/js')));
+        .pipe(gulp.dest('lib/js'));
 });
 
 /**
@@ -122,9 +123,42 @@ gulp.task('copy', function(){
 
     gulp.src(path.join(__dirname, 'lib/images/*.*'))
         .pipe(gulp.dest(path.join(__dirname, 'dist/images')));
+});
 
-    gulp.src(path.join(__dirname, 'lib/index.html'))
-        .pipe(gulp.dest(path.join(__dirname, 'dist')));
+gulp.task('html', function(){
+    async.parallel([
+        function(callback){
+            fs.readFile('lib/index.html', 'utf8', function(err, data){
+                if (err) {
+                    callback(err);
+                }
+
+                callback(null, data);
+            });
+        },
+        function(callback){
+            fs.readFile('lib/data/data.json', 'utf8', function(err, data){
+                if (err) {
+                    callback(err);
+                }
+
+                callback(null, JSON.parse(data));
+            });
+        }
+    ],
+    function(err, results){
+        var compiled = _.template(results[0]);
+        var template = compiled(results[1]);
+        template = template.replace(/%26/g, '&');
+
+        fs.writeFile('dist/index.html', template, function(err){
+            if (err) {
+                console.log('Error creating .html template');
+            }
+
+            console.log('Successfully created .html template');
+        });
+    });
 });
 
 /**
@@ -139,11 +173,23 @@ gulp.task('clean', function(){
 });
 
 /**
+ * Monitor resume changes to build PDF
+ */
+gulp.task('watch:resume', function(){
+    gulp.watch('./lib/docs/MilesOldenburg_Resume.tex', ['resume']);
+});
+
+/**
  * Watches for changes in LESS and then triggers the less task
  */
-gulp.task('watch', function(){
+gulp.task('watch:less', function(){
     gulp.watch(path.join(__dirname, 'lib/css/styles.less'), ['less']);
 });
+
+/**
+ * Runs all watch tasks
+ */
+gulp.task('watch', ['watch:resume', 'watch:less']);
 
 /**
  * Uploads the site
@@ -161,8 +207,6 @@ gulp.task('lint', ['lint:config', 'lint:lib', 'jscs:config', 'jscs:lib']);
  * Builds the resume .tex file from template and json data
  */
 gulp.task('resume:prep', function(){
-    var fs = require('fs');
-
     async.parallel([
         function(callback){
             fs.readFile('lib/docs/MilesOldenburg_Resume.utp', 'utf8', function(err, data){
@@ -186,7 +230,7 @@ gulp.task('resume:prep', function(){
     function(err, results){
         var compiled = _.template(results[0]);
         var tex = compiled(results[1]);
-        tex = tex.replace(/%26/g, "\\&");
+        tex = tex.replace(/%26/g, '\\&');
 
         fs.writeFile('lib/docs/MilesOldenburg_Resume.tex', tex, function(err){
             if (err) {
@@ -213,15 +257,15 @@ gulp.task('resume', function(){
 });
 
 /**
- * Monitor resume changes to build PDF
+ * Prepares site for deployment
  */
-gulp.task('watch:resume', function(){
-    gulp.watch('./lib/docs/MilesOldenburg_Resume.tex', ['resume']);
+gulp.task('prep', function(){
+    runSequence('clean', ['lint', 'less', 'resume', 'html'], ['copy', 'webpack']);
 });
 
 /**
  * Default gulp task
  */
 gulp.task('default', function(){
-    runSequence('clean', ['lint', 'less', 'resume'], ['copy', 'webpack'], 'scp');
+    runSequence('prep', 'scp');
 });

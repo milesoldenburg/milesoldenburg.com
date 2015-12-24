@@ -92,205 +92,112 @@
 
                     <h3>Education</h3>
 
-                    <div class="panel panel-default">
-                        <div class="panel-heading">Duke University<br/><em>MS Electrical and Computer Engineering, 2015</em></div>
-                        <div class="panel-body">
-                            <p class="normal-margin">My field of study is in distributed systems and wireless sensor networks. I have taken classes in the following subjects:</p>
-                            <ul>
-                                <li>Information Theory: channel coding, optimization</li>
-                                <li>Probability and Statistics: performance, reliability, availability, queuing, stochastic modeling</li>
-                                <li>Machine Learning and Pattern Recognition</li>
-                                <li>Network Architecture</li>
-                                <li>Optimal Environmental Sensing</li>
-                                <li>Computer Vision: Image and Video Processing</li>
-                                <li>Distributed Systems</li>
-                                <li>Robotic Perception, Planning, and Control</li>
-                                <li>Parallel Computing</li>
-                                <li>Network Security</li>
-                            </ul>
-                            <p class="normal-margin"></p>
-                            <div class="well well-sm">
-                                <p class="no-margin">MATLAB, C, Python, C++, Java, Node.js</p>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-2 col-md-offset-5 col-xs-4 col-xs-offset-4 text-center">
-                                    <img src="images/duke-logo-blue.png" style="max-width: 100%; height: auto;" alt="Duke Logo." />
+                    <% _.each(education, function(element){ %>
+                        <div class="panel panel-default">
+                            <div class="panel-heading"><%= element.school %><br/><em><%= element.degree %> in <%= element.major %>, <%= element.date %></em></div>
+                            <div class="panel-body">
+                                <p class="normal-margin"><%= element.description %> I have taken classes in the following subjects:</p>
+                                <ul>
+                                    <% _.each(element.courses, function(course){ %>
+                                        <li><%= course %></li>
+                                    <% }); %>
+                                </ul>
+                                <p class="normal-margin"></p>
+                                <div class="well well-sm">
+                                    <p class="no-margin">
+                                        <%= element.skills.join(', ') %>
+                                    </p>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-2 col-md-offset-5 col-xs-4 col-xs-offset-4 text-center">
+                                        <img src="images/<%= element.logo %>" style="max-width: 100%; height: auto;" alt="<%=element.school %> Logo." />
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="panel panel-default">
-                        <div class="panel-heading">The Ohio State University<br/><em>BS Computer and Information Science, 2012</em></div>
-                        <div class="panel-body">
-                            <p class="normal-margin">My concentration was in information systems. To complete the concentration I took classes in database systems, software requirements specification, object oriented analysis, accounting, business operations, supply chain management, and statistics.</p>
-                            <ul>
-                                <li>Systems Engineering</li>
-                                <li>Artificial Intelligence</li>
-                                <li>Computer Graphics</li>
-                                <li>Computer Architecture</li>
-                                <li>Algorithms</li>
-                            </ul>
-                            <div class="well well-sm">
-                                <p class="no-margin">Java, C, C++</p>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-4 col-md-offset-4 col-xs-8 col-xs-offset-2 text-center">
-                                    <img src="images/osu-logo.png" style="max-width: 100%; height: auto;" alt="OSU Logo." />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <% }); %>
 
                     <h3>Experience</h3>
 
-                    <div class="panel panel-default">
-                        <div class="panel-heading">Cisco Systems, Inc.<br/><em>Engineer</em><br/><em>2011 Internship, 2012 - Present</em></div>
-                        <div class="panel-body">
-                            <p class="normal-margin"><em>Accomplishments</em></p>
-                            <ul>
-                                <li>Design web application architecture and implement company wide applications and web services</li>
-                                <li>Created mobile applications for support, metrics, and pervasive experience</li>
-                                <li>Agile project management with Scrum</li>
-                                <li>Front and back end build automation for continuous integration</li>
-                                <li>Created application to analyze reporting structures and provide personnel metrics to assist executives making organizational decisions</li>
-                                <li>Assisted in creating application to gather and display usage metrics about other applications to assist in resource assignment and retirement of the applications</li>
-                                <li>Mentor interns and new hires and manage intern projects</li>
-                            </ul>
-                            <div class="well well-sm">
-                                <p class="no-margin">
-                                    <span data-toggle="tooltip" data-placement="top" title="Maven, Apache Struts, Spring, Hibernate">Java</span>,
-                                    <span data-toggle="tooltip" data-placement="top" title="Node.js, Backbone, Grunt, Gulp">JavaScript</span>,
-                                    HTML5,
-                                    <span data-toggle="tooltip" data-placement="top" title="LESS">CSS</span>,
-                                    <span data-toggle="tooltip" data-placement="top" title="git, svn, cvs, Gerrit">Version Control</span>,
-                                    <span data-toggle="tooltip" data-placement="top" title="Jenkins">Continuous Integration</span>,
-                                    Oracle,
-                                    Apache Cordova/PhoneGap
-                                </p>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-2 col-md-offset-5 col-xs-4 col-xs-offset-4 text-center">
-                                    <img src="images/cisco-logo-black.png" style="max-width: 100%; height: auto;" alt="Cisco Logo." />
+                    <% _.each(experience, function(element){ %>
+                        <div class="panel panel-default">
+                            <div class="panel-heading"><%= element.organization %><br/><em><%= element.title %></em><br/><em><%= element.date %></em></div>
+                            <div class="panel-body">
+                                <p class="normal-margin"><em>Accomplishments</em></p>
+                                <ul>
+                                    <% _.each(element.accomplishments, function(accomplishment){ %>
+                                        <li><%= accomplishment %></li>
+                                    <% }); %>
+                                </ul>
+                                <div class="well well-sm">
+                                    <p class="no-margin">
+                                        <% _.each(element.skills, function(skill, index){ %>
+                                            <% if (_.has(skill, 'libraries')) { %>
+                                                <span data-toggle="tooltip" data-placement="top" title="<%= skill.libraries.join(', ') %>"><%= skill.name %></span><% if (index !== element.skills.length - 1) print(','); %>
+                                            <% } else { %>
+                                                <%= skill.name %><% if (index !== element.skills.length - 1) print(','); %>
+                                            <% } %>
+                                        <% }); %>
+                                    </p>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-2 col-md-offset-5 col-xs-4 col-xs-offset-4 text-center">
+                                        <img src="images/<%= element.logo %>" style="max-width: 100%; height: auto;" alt="<%= element.organization %> Logo." />
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="panel panel-default">
-                        <div class="panel-heading">The Ohio State University<br/><em>Systems Engineer</em><br/><em>2007 - 2009</em></div>
-                        <div class="panel-body">
-                            <p class="normal-margin">I designed, developed, and maintained new and existing Web sites and dynamic Web applications. I worked with departments, groups, and individuals in all stages of Web projects.</p>
-                            <p class="normal-margin"><em>Accomplishments</em></p>
-                            <ul>
-                                <li>Wrote scripts to detect, report, and prevent SQL Injection attacks across all College sites</li>
-                                <li>Wrote scripts to detect and report errors as soon as they occur, across all College sites</li>
-                                <li>Helped establish ColdFusion components and OOP features of ColdFusion to produce applications and standard display pages for departmental events and scheduling.</li>
-                                <li>Co-implemented a custom lightweight ColdFusion MVC framework</li>
-                                <li>Created accessible web sites for impaired users</li>
-                                <li>Created web sites that adhere to government and validation standards</li>
-                            </ul>
-                            <div class="well well-sm">
-                                <p class="no-margin">ColdFusion, MSSQL, <span data-toggle="tooltip" data-placement="top" title="Drupal">PHP</span>, MySQL, HTML, CSS, JavaScript</p>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-4 col-md-offset-4 col-xs-8 col-xs-offset-2 text-center">
-                                    <img src="images/osu-logo.png" style="max-width: 100%; height: auto;" alt="OSU Logo." />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <% }); %>
 
                     <h3>Certifications</h3>
 
                     <ul class="list-group">
-                        <li class="list-group-item">Professional Scrum Master I, Scrum.org, 2012</li>
-                        <li class="list-group-item">ITIL IT Service Management, PEOPLECERT, 2013</li>
+                        <% _.each(certifications, function(element){ %>
+                            <li class="list-group-item"><%= element.name %>, <%= element.organization %>, <%= element.date %></li>
+                        <% }); %>
                     </ul>
 
                     <h3>Formal Training</h3>
 
                     <ul class="list-group">
-                        <li class="list-group-item">Introductory and Advanced ColdFusion Training, Webucator, 2008</li>
-                        <li class="list-group-item">Advanced Javascript, Marakana, 2012</li>
-                        <li class="list-group-item">Scrum Boot Camp, Construx, 2012</li>
-                        <li class="list-group-item">Building Hybrid Apps With PhoneGap, Jonathan Stark, 2013</li>
-                        <li class="list-group-item">ITIL Foundations, Pink Elephant, 2013</li>
-                        <li class="list-group-item">Big Data Fundamentals: Introduction to Hadoop, Cloudera, 2013</li>
-                        <li class="list-group-item">M101J: MongoDB for Java Developers, 10gen, 2013</li>
+                        <% _.each(training, function(element){ %>
+                            <li class="list-group-item"><%= element.name %>, <%= element.organization %>, <%= element.date %></li>
+                        <% }); %>
                     </ul>
 
                     <h3>Internships</h3>
 
                     <div class="panel-group" id="accordion">
-                        <div class="panel panel-default">
-                            <div class="panel-heading collapsible">
-                                <h4 class="panel-title"><a data-toggle="collapse" data-target="#collapseOne" class="collapsed">(Part Time) Student Web Developer</a></h4>
-                            </div>
-                            <div id="collapseOne" class="panel-collapse collapse">
-                                <div class="panel-body">
-                                    <p class="normal-margin"><strong>Goldberg Center, The Department of History, The Ohio State University<br/>2009-2012</strong></p>
-                                    <p class="normal-margin">I designed, developed, and maintained new and existing Web sites and dynamic Web applications. In addition to programming, I assisted faculty and graduate students with instructional media.</p>
-                                    <p class="normal-margin"><em>Accomplishments</em></p>
-                                    <ul>
-                                        <li>I created an Android application available on the Android Marketplace for accessing the Origins Magazi8ne</li>
-                                        <li>Using the Media Manager application at the university, I helped create https:// gmma.osu.edu/. I created the branding and themed the site.</li>
-                                        <li>I converted http://hti.osu.edu/, a large project dealing with instructional media, from old code to being powered by the Drupal content management system.</li>
-                                        <li>I created The Humanities Atlas, a visual aggregator that identifies and maps news and activities in the humanities across the country.</li>
-                                        <li>I created software that parses text documents and creates images that show parts of speech as blocks of color.</li>
-                                        <li>I acted as Interim Web Developer while the full time position was being filled.</li>
-                                    </ul>
-                                    <div class="well well-sm">
-                                        <p class="no-margin">ColdFusion, MSSQL, <span data-toggle="tooltip" data-placement="top" title="Drupal">PHP</span>, MySQL, HTML, CSS, JavaScript, Android, Java, SVN</p>
+                        <% _.each(internships, function(element, index){ %>
+                            <div class="panel panel-default">
+                                <div class="panel-heading collapsible">
+                                    <h4 class="panel-title"><a data-toggle="collapse" data-target="#collapse-<%= index %>" class="collapsed"><%= element.title %></a></h4>
+                                </div>
+                                <div id="collapse-<%= index %>" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <p class="normal-margin"><strong><%= element.organization %><br/><%= element.date %></strong></p>
+                                        <% if (_.has(element, 'description')) { %><p class="normal-margin"><%= element.description %><% } %>
+                                        <p class="normal-margin"><em>Accomplishments</em></p>
+                                        <ul>
+                                            <% _.each(element.accomplishments, function(accomplishment){ %>
+                                                <li><%= accomplishment %></li>
+                                            <% }); %>
+                                        </ul>
+                                        <div class="well well-sm">
+                                            <p class="no-margin">
+                                                <% _.each(element.skills, function(skill, index){ %>
+                                                    <% if (_.has(skill, 'libraries')) { %>
+                                                        <span data-toggle="tooltip" data-placement="top" title="<%= skill.libraries.join(', ') %>"><%= skill.name %></span><% if (index !== element.skills.length - 1) print(','); %>
+                                                    <% } else { %>
+                                                        <%= skill.name %><% if (index !== element.skills.length - 1) print(','); %>
+                                                    <% } %>
+                                                <% }); %>
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="panel panel-default" id="panel2">
-                            <div class="panel-heading collapsible">
-                                <h4 class="panel-title"><a data-toggle="collapse" data-target="#collapseTwo" class="collapsed">(Part Time) Graphic Designer / Programmer</a></h4>
-                            </div>
-                            <div id="collapseTwo" class="panel-collapse collapse">
-                                <div class="panel-body">
-                                    <p class="normal-margin">
-                                        <strong>Foreign Language Center, College of Arts and Sciences, The Ohio State University<br/>2011-2012</strong>
-                                    </p>
-                                    <p class="normal-margin"><em>Accomplishments</em></p>
-                                    <ul>
-                                        <li>Created an application to provide online foreign language testing to incoming students</li>
-                                        <li>Created an application to provide an online interactive book to assist students in learning Japanese</li>
-                                        <li>Designed posters and flyers for various events</li>
-                                    </ul>
-                                    <div class="well well-sm">
-                                        <p class="no-margin">ColdFusion, MSSQL, <span data-toggle="tooltip" data-placement="top" title="Drupal">PHP</span>, MySQL, HTML, CSS, JavaScript, Adobe Photoshop, Adobe Illustrator</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="panel panel-default" id="panel3">
-                            <div class="panel-heading collapsible">
-                                <h4 class="panel-title"><a data-toggle="collapse" data-target="#collapseThree" class="collapsed">(Part Time) Web / Database Assistant</a></h4>
-                            </div>
-                            <div id="collapseThree" class="panel-collapse collapse">
-                                <div class="panel-body">
-                                    <p class="normal-margin"><strong>Ohio Learning Network, State of Ohio<br/>2010-2011</strong></p>
-                                    <p class="normal-margin">I designed and implemented new and existing web based projects.</p>
-                                    <p class="normal-margin"><em>Accomplishments</em></p>
-                                    <ul>
-                                        <li>I redesigned and refactored the OhioLearns! Catalog according to state government standards</li>
-                                        <li>I helped design the policy regarding Subversion and how it should be used for the technology group</li>
-                                        <li>I designed prototypes for the USO Student Portal outlined in the Strategic Plan for Higher Education, exposing the technology group to Drupal.</li>
-                                    </ul>
-                                    <div class="well well-sm">
-                                        <p class="no-margin">
-                                            PHP, MySQL, HTML, CSS, JavaScript
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <% }); %>
                     </div>
 
                     <div class="text-center">

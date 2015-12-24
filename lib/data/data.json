@@ -13,6 +13,8 @@
       "degree" : "M.S.",
       "major" : "Electrical %26 Computer Engineering",
       "location" : "Durham, NC",
+      "description" : "My field of study is in distributed systems and wireless sensor networks.",
+      "logo" : "duke-logo-blue.png",
       "courses" : [
         "Information Theory: channel coding, optimization",
         "Probability and Statistics: performance, reliability, availability, queuing, stochastic modeling",
@@ -47,6 +49,8 @@
       "degree" : "B.S.",
       "major" : "Computer %26 Information Science",
       "location" : "Columbus, OH",
+      "description" : "My concentration was in information systems. To complete the concentration I took classes in database systems, software requirements specification, object oriented analysis, accounting, business operations, supply chain management, and statistics.",
+      "logo" : "osu-logo.png",
       "courses" : [
         "Systems Engineering",
         "Artificial Intelligence",
@@ -68,6 +72,7 @@
       "date" : "July 2012 - Present",
       "title" : "Engineer",
       "location" : "Research Triangle Park, NC",
+      "logo" : "cisco-logo-black.png",
       "accomplishments" : [
         "Created application to analyze and forecast reporting structures and provide personnel metrics to assist executives making organizational decisions",
         "Created JavaScript module for collecting user feedback on services",
@@ -140,6 +145,7 @@
       "date" : "2007 - 2009",
       "title" : "Systems Engineer",
       "location" : "Columbus, OH",
+      "logo" : "osu-logo.png",
       "accomplishments" : [
         "Designed and maintained web sites and applications for Arts and Humanities departments, centers, and faculty",
         "Created error reporting and SQL injection reporting system",
@@ -328,6 +334,7 @@
       "date" : "2010 - 2011",
       "title" : "Web / Database Assistant",
       "location" : "Columbus, OH",
+      "description" : "I designed and implemented new and existing web based projects.",
       "accomplishments" : [
         "Redesigned and refactored the OhioLearns! Catalog according to state government standards",
         "Designed the policy regarding Subversion and how it should be used for the technology group",
@@ -348,6 +355,9 @@
         },
         {
           "name" : "CSS"
+        },
+        {
+          "name" : "JavaScript"
         }
       ]
     }
