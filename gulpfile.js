@@ -255,15 +255,15 @@ gulp.task('resume:pdf', shell.task([
 /**
  * Runs resume tasks
  */
-gulp.task('resume', function(){
-    runSequence('resume:prep', 'resume:pdf');
+gulp.task('resume', function(callback){
+    runSequence('resume:prep', 'resume:pdf', callback);
 });
 
 /**
  * Prepares site for deployment
  */
-gulp.task('prep', function(){
-    runSequence('clean', ['lint', 'less', 'resume', 'html'], ['copy', 'webpack']);
+gulp.task('prep', function(callback){
+    runSequence('clean', ['lint', 'less', 'resume', 'html'], ['copy', 'webpack'], callback);
 });
 
 /**
