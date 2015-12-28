@@ -123,6 +123,9 @@ gulp.task('copy', function(){
 
     gulp.src(path.join(__dirname, 'lib/images/*.*'))
         .pipe(gulp.dest(path.join(__dirname, 'dist/images')));
+
+    gulp.src(path.join(__dirname, 'lib/data/*.*'))
+        .pipe(gulp.dest(path.join(__dirname, 'dist/data')));
 });
 
 gulp.task('html', function(){
