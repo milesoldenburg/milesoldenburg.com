@@ -35,14 +35,13 @@
 %-------------------------------------------------------------------------------
 
 \begin{rSection}{Education}
-
 <% _.each(education, function(element){ %>
     {\bf <%= element.school %>} \hfill <%= element.date %> \\
     {\em <%= element.degree %> in <%= element.major %>} \hfill {\em <%= element.location %>}
     \smallskip \\
-    Coursework: <%= element.coursework %> \smallskip
+    Coursework: <%= element.coursework %>
 
-    <% if (!_.isUndefined(element.accomplishments) && !_.isNull(element.accomplishments) && element.accomplishments.length > 0) { %>
+    <% if (!_.isUndefined(element.accomplishments) && !_.isNull(element.accomplishments) && element.accomplishments.length > 0) { %>\smallskip
         \begin{list}{$\cdot$}{\leftmargin=0em}
         \itemsep -0.5em \vspace{-0.5em}
         <% _.each(element.accomplishments, function(accomplishment){ %>
@@ -51,7 +50,6 @@
         \end{list}
     <% } %>
 <% }); %>
-
 \end{rSection}
 
 %-------------------------------------------------------------------------------
@@ -59,15 +57,13 @@
 %-------------------------------------------------------------------------------
 
 \begin{rSection}{Experience}
-
 <% _.each(experience, function(element){ %>
     \begin{rSubsection}{<%= element.organization %>}{<%= element.date %>}{<%= element.title %>}{<%= element.location %>}
-    <% _.each(element.accomplishments, function(accomplishment){ %>
+    <% _.each(_.first(element.accomplishments, 5), function(accomplishment){ %>
         \item <%= accomplishment %>
     <% }); %>
     \end{rSubsection}
 <% }); %>
-
 \end{rSection}
 
 %-------------------------------------------------------------------------------
@@ -75,13 +71,11 @@
 %-------------------------------------------------------------------------------
 
 \begin{rSection}{Technical Strengths}
-
 \begin{tabular}{ @{} >{\bfseries}l @{\hspace{6ex}} l }
 Computer Languages & <%= technicalStrengths.computerLanguages.join(', ') %> \\
 Databases & <%= technicalStrengths.databases.join(', ') %> \\
 Tools & <%= technicalStrengths.tools.join(', ') %>
 \end{tabular}
-
 \end{rSection}
 
 %-------------------------------------------------------------------------------
@@ -89,16 +83,14 @@ Tools & <%= technicalStrengths.tools.join(', ') %>
 %-------------------------------------------------------------------------------
 
 \begin{rSection}{Certifications and Training}
-
 \begin{minipage}[t]{0.5\textwidth}
-<% _.each(certifications, function(element, index){ %><%= element.name %> \\
+<% _.each(_.first(certifications, 2), function(element, index){ %><%= element.name %> \\
 <%= element.organization %>, <%= element.date %> <% if (index < certifications.length - 1) print('\\smallskip \\\\'); %><% }); %>
 \end{minipage}
 \begin{minipage}[t]{0.45\textwidth}
-<% _.each(training, function(element, index){ %><%= element.name %> \\
+<% _.each(_.first(training, 2), function(element, index){ %><%= element.name %> \\
 <%= element.organization %>, <%= element.date %> <% if (index < training.length - 1) print('\\smallskip \\\\'); %><% }); %>
 \end{minipage}
-
 \end{rSection}
 
 \end{document}
