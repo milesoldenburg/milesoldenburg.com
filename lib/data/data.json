@@ -74,12 +74,13 @@
       "location" : "Research Triangle Park, NC",
       "logo" : "cisco-logo-black.png",
       "accomplishments" : [
+        "Responsible for design and development of web and mobile applications for operations",
+        "Design automated front and back-end build, test, and deployment processes",
+        "Created applications to monitor global operations status",
         "Created application to analyze and forecast reporting structures and provide personnel metrics to assist executives making organizational decisions",
         "Created JavaScript module for collecting user feedback on services",
-        "Design and build web and mobile applications for operations",
-        "Design automated front and back-end build, test, and deployment processes",
         "Maintain an internal Bootstrap fork with custom components",
-        "Created mobile applications for support, metrics, and pervasive experience",
+        "Created web and mobile applications for support, metrics, and pervasive experience",
         "Agile project management with Scrum",
         "Created application to gather and display usage metrics about other applications to assist in resource assignment and retirement of the applications",
         "Mentor interns and new hires and manage intern projects"
