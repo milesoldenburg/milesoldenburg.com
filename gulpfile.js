@@ -3,6 +3,7 @@ var async = require('async');
 var del = require('del');
 var fs = require('fs');
 var gulp = require('gulp');
+var gutil = require('gulp-util');
 var jscs = require('gulp-jscs');
 var jshint = require('gulp-jshint');
 var less = require('gulp-less');
@@ -82,10 +83,10 @@ gulp.task('less', function(){
 /**
  * Creates a development server
  */
-gulp.task('webpack-dev-server', ['less', 'watch'], function(){
+gulp.task('webpack-dev-server', ['less', 'html', 'copy', 'watch'], function(){
     // Start a webpack-dev-server
-    new webpackDevServer(webpack(webpackConfig), {
-        contentBase : path.join(__dirname, 'lib'),
+    new webpackDevServer(webpack(webpackConfig), { // jshint ignore:line
+        contentBase : path.join(__dirname, 'dist'),
         debug : true,
         devtool : 'eval',
         quiet : false,
@@ -156,10 +157,10 @@ gulp.task('html', function(){
 
         fs.writeFile('dist/index.html', template, function(err){
             if (err) {
-                console.log('Error creating .html template');
+                gutil.log('Error creating .html template');
             }
 
-            console.log('Successfully created .html template');
+            gutil.log('Successfully created .html template');
         });
     });
 });
@@ -179,7 +180,10 @@ gulp.task('clean', function(){
  * Monitor resume changes to build PDF
  */
 gulp.task('watch:resume', function(){
-    gulp.watch('./lib/docs/MilesOldenburg_Resume.tex', ['resume']);
+    gulp.watch([
+        './lib/docs/MilesOldenburg_Resume.utp',
+        './lib/data/data.json'
+    ], ['resume']);
 });
 
 /**
@@ -190,9 +194,20 @@ gulp.task('watch:less', function(){
 });
 
 /**
+ * Monitor template changes
+ */
+
+gulp.task('watch:html', function(){
+    gulp.watch([
+        './lib/index.html',
+        './lib/data/data.json'
+    ], ['html']);
+});
+
+/**
  * Runs all watch tasks
  */
-gulp.task('watch', ['watch:resume', 'watch:less']);
+gulp.task('watch', ['watch:resume', 'watch:less', 'watch:html']);
 
 /**
  * Uploads the site
@@ -237,10 +252,10 @@ gulp.task('resume:prep', function(){
 
         fs.writeFile('lib/docs/MilesOldenburg_Resume.tex', tex, function(err){
             if (err) {
-                console.log('Error creating .tex');
+                gutil.log('Error creating .tex');
             }
 
-            console.log('Successfully created .tex');
+            gutil.log('Successfully created .tex');
         });
     });
 });
@@ -249,14 +264,14 @@ gulp.task('resume:prep', function(){
  * Builds the resume PDF
  */
 gulp.task('resume:pdf', shell.task([
-    'cd lib/docs && /usr/texbin/pdflatex MilesOldenburg_Resume.tex'
+    'cd lib/docs && pdflatex MilesOldenburg_Resume.tex'
 ]));
 
 /**
  * Runs resume tasks
  */
 gulp.task('resume', function(callback){
-    runSequence('resume:prep', 'resume:pdf', callback);
+    runSequence('resume:prep', 'resume:pdf', 'copy', callback);
 });
 
 /**

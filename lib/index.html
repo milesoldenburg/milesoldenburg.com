@@ -110,7 +110,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-2 col-md-offset-5 col-xs-4 col-xs-offset-4 text-center">
-                                        <img src="images/<%= element.logo %>" style="max-width: 100%; height: auto;" alt="<%=element.school %> Logo." />
+                                        <img src="images/<%= element.logo %>" style="max-width: 100%; height: auto;" alt="<%= element.school %> Logo." />
                                     </div>
                                 </div>
                             </div>
@@ -248,7 +248,7 @@
 
     <footer>
         <div class="container text-center">
-            <p>Copyright &copy; Miles Oldenburg 2015</p>
+            <p>Copyright &copy; Miles Oldenburg <%= new Date().getFullYear() %></p>
         </div>
     </footer>
     <script src="bundle.js" type="text/javascript" charset="utf-8"></script>
