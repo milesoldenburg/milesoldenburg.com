@@ -49,6 +49,8 @@
         <% }); %>
         \end{list}
     <% } %>
+    \textbf{Skills} \\
+    <%= element.skills.join(', ') %>
 <% }); %>
 \end{rSection}
 
@@ -58,10 +60,17 @@
 
 \begin{rSection}{Experience}
 <% _.each(experience, function(element){ %>
-    \begin{rSubsection}{<%= element.organization %>}{<%= element.date %>}{<%= element.title %>}{<%= element.location %>}
-    <% _.each(_.first(element.accomplishments, 5), function(accomplishment){ %>
+    \begin{rSubsection}{<%= element.organization %>}{<%= element.date %>}{<%= element.title %>}{<%= element.location %>}{<%= element.description %>}
+
+    <% _.each(element.accomplishments, function(accomplishment){ %>
         \item <%= accomplishment %>
     <% }); %>
+
+    \textbf{Skills}
+    <% _.each(element.skills, function(skill){ %>
+        <% if (_.has(skill, 'libraries')) { skill.name += '\\em{(' + skill.libraries.join(', ') + ')}'; } %>
+    <% }); %>
+    <%= _.pluck(element.skills, 'name').join(', ') %>
     \end{rSubsection}
 <% }); %>
 \end{rSection}
@@ -84,11 +93,11 @@ Tools & <%= technicalStrengths.tools.join(', ') %>
 
 \begin{rSection}{Certifications and Training}
 \begin{minipage}[t]{0.5\textwidth}
-<% _.each(_.first(certifications, 2), function(element, index){ %><%= element.name %> \\
+<% _.each(certifications, function(element, index){ %><%= element.name %> \\
 <%= element.organization %>, <%= element.date %> <% if (index < certifications.length - 1) print('\\smallskip \\\\'); %><% }); %>
 \end{minipage}
 \begin{minipage}[t]{0.45\textwidth}
-<% _.each(_.first(training, 2), function(element, index){ %><%= element.name %> \\
+<% _.each(training, function(element, index){ %><%= element.name %> \\
 <%= element.organization %>, <%= element.date %> <% if (index < training.length - 1) print('\\smallskip \\\\'); %><% }); %>
 \end{minipage}
 \end{rSection}

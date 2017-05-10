@@ -63,15 +63,11 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">
                     <h2>About</h2>
-                    <p>I'm an engineer and grad student in RTP, NC.</p>
-                    <p>I work for Cisco Systems and study at Duke University.</p>
-                    <p>I'm interested in distributed systems, intelligent wireless sensor networks, and artificial composition.</p>
+                    <p>I'm an engineer in RTP, NC, working at Cisco Systems on network security.</p>
+                    <p>I'm interested in distributed systems and computing, intelligent wireless sensor networks, and artificial composition.</p>
                     <div class="row">
-                        <div class="col-xs-3 col-xs-offset-3 text-center">
+                        <div class="col-xs-4 col-xs-offset-4 text-center">
                             <img src="images/cisco-logo.png" style="max-width: 100%; height: auto;" alt="Cisco Logo." />
-                        </div>
-                        <div class="col-xs-3 text-center">
-                            <img src="images/duke-logo.png" style="max-width: 100%; height: auto;" alt="Duke Logo." />
                         </div>
                     </div>
                     <br/>
@@ -123,6 +119,7 @@
                         <div class="panel panel-default">
                             <div class="panel-heading"><%= element.organization %><br/><em><%= element.title %></em><br/><em><%= element.date %></em></div>
                             <div class="panel-body">
+                                <p class="normal-margin"><%= element.description %></p>
                                 <p class="normal-margin"><em>Accomplishments</em></p>
                                 <ul>
                                     <% _.each(element.accomplishments, function(accomplishment){ %>

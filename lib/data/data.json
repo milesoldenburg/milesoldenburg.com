@@ -13,7 +13,7 @@
       "degree" : "M.S.",
       "major" : "Electrical %26 Computer Engineering",
       "location" : "Durham, NC",
-      "description" : "My field of study is in distributed systems and wireless sensor networks.",
+      "description" : "My field of study was in distributed systems and wireless sensor networks.",
       "logo" : "duke-logo-blue.png",
       "courses" : [
         "Information Theory: channel coding, optimization",
@@ -73,26 +73,51 @@
       "title" : "Engineer",
       "location" : "Research Triangle Park, NC",
       "logo" : "cisco-logo-black.png",
+      "description" : "I work on a network security cloud product that analyzes customer network data to provide insights into security vulnerabilities. This work spans different domains from virtual appliances to web applications. Previously I worked in global operations designing applications that provide operations visibility and metrics.",
       "accomplishments" : [
+        "Built virtual appliance creation and delivery service",
         "Responsible for design and development of web and mobile applications for operations",
+        "Manage global vendor teams for product development and support",
         "Design automated front and back-end build, test, and deployment processes",
-        "Created applications to monitor global operations status",
         "Created application to analyze and forecast reporting structures and provide personnel metrics to assist executives making organizational decisions",
-        "Created JavaScript module for collecting user feedback on services",
-        "Maintain an internal Bootstrap fork with custom components",
-        "Created web and mobile applications for support, metrics, and pervasive experience",
-        "Agile project management with Scrum",
+        "Created JavaScript library for collecting user feedback on services",
+        "Maintain an internal Bootstrap fork with custom components that adhered to company UI requirements used by many teams",
         "Created application to gather and display usage metrics about other applications to assist in resource assignment and retirement of the applications",
         "Mentor interns and new hires and manage intern projects"
       ],
       "skills" : [
+        {
+          "name" : "AWS"
+        },
+        {
+          "name" : "CSS",
+          "libraries" : [
+            "LESS",
+            "Bootstrap"
+          ]
+        },
+        {
+          "name" : "Docker",
+          "libraries" : [
+            "Docker Compose"
+          ]
+        },
+        {
+          "name" : "Gherkin"
+        },
+        {
+          "name" : "HTML5"
+        },
         {
           "name" : "Java",
           "libraries" : [
             "Maven",
             "Apache Struts",
             "Spring",
-            "Hibernate"
+            "Hibernate",
+            "Dropwizard",
+            "JUnit",
+            "Mockito"
           ]
         },
         {
@@ -104,18 +129,23 @@
             "Grunt",
             "Gulp",
             "Webpack",
-            "Require.js"
+            "Require.js",
+            "Mocha",
+            "Chai",
+            "Cucumber"
           ]
         },
         {
-          "name" : "HTML5"
+          "name" : "MySQL"
         },
         {
-          "name" : "CSS",
-          "libraries" : [
-            "LESS",
-            "Bootstrap"
-          ]
+          "name" : "NGINX"
+        },
+        {
+          "name" : "Oracle"
+        },
+        {
+          "name" : "RAML"
         },
         {
           "name" : "Version Control",
@@ -134,9 +164,6 @@
           ]
         },
         {
-          "name" : "Oracle"
-        },
-        {
           "name" : "Apache Cordova/PhoneGap"
         }
       ]
@@ -147,8 +174,8 @@
       "title" : "Systems Engineer",
       "location" : "Columbus, OH",
       "logo" : "osu-logo.png",
+      "description" : "I worked for the college of Arts and Sciences designing and maintaining web sites and applications for departments, centers, and faculty.",
       "accomplishments" : [
-        "Designed and maintained web sites and applications for Arts and Humanities departments, centers, and faculty",
         "Created error reporting and SQL injection reporting system",
         "Created applications for departmental events, directories, news, scheduling, and course listings",
         "Created a custom lightweight ColdFusion MVC framework for internal applications",
@@ -185,7 +212,7 @@
   "technicalStrengths" : {
     "computerLanguages" : ["Java", "C", "C++", "JavaScript", "Python", "PHP", "ColdFusion"],
     "databases" : ["Oracle", "MySQL", "MongoDB"],
-    "tools" : ["Git", "SVN", "Jenkins", "MATLAB", "Linux/UNIX"]
+    "tools" : ["Git", "SVN", "Jenkins", "MATLAB", "Linux/UNIX, Docker, RAML, Gherkin"]
   },
   "certifications" : [
     {
@@ -197,6 +224,11 @@
       "name" : "ITIL IT Service Management",
       "organization" : "PEOPLECERT",
       "date" : 2013
+    },
+    {
+      "name" : "Security Green Belt",
+      "organization" : "Cisco Systems, Inc.",
+      "date" : 2017
     }
   ],
   "training" : [
