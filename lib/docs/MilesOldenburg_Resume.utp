@@ -50,7 +50,7 @@
         \end{list}
     <% } %>
     \textbf{Skills} \\
-    <%= element.skills.join(', ') %>
+    \small <%= element.skills.join(', ') %>
 <% }); %>
 \end{rSection}
 
@@ -68,9 +68,9 @@
 
     \textbf{Skills}
     <% _.each(element.skills, function(skill){ %>
-        <% if (_.has(skill, 'libraries')) { skill.name += '\\em{(' + skill.libraries.join(', ') + ')}'; } %>
+        <% if (_.has(skill, 'libraries')) { skill.name += ' (' + skill.libraries.join(', ') + ')'; } %>
     <% }); %>
-    <%= _.pluck(element.skills, 'name').join(', ') %>
+    \small <%= _.pluck(element.skills, 'name').join(', ') %>
     \end{rSubsection}
 <% }); %>
 \end{rSection}

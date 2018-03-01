@@ -1,8 +1,8 @@
 {
   "name" : "Miles Oldenburg",
   "address" : {
-    "line1" : "1119 Dominion Oak Circle",
-    "line2" : "Cary, NC 27519"
+    "line1" : "440 Superior Road",
+    "line2" : "Wilmington, NC 28412"
   },
   "phone" : ["614", "589", "4745"],
   "email" : "miles@milesoldenburg.com",
@@ -73,9 +73,9 @@
       "title" : "Engineer",
       "location" : "Research Triangle Park, NC",
       "logo" : "cisco-logo-black.png",
-      "description" : "I work on a network security cloud product that analyzes customer network data to provide insights into security vulnerabilities. This work spans different domains from virtual appliances to web applications. Previously I worked in global operations designing applications that provide operations visibility and metrics.",
+      "description" : "I work on a network security cloud product that analyzes customer network data to provide insights into security vulnerabilities. This work spans different domains from virtual appliances, web applications, and analytics. Previously I worked in global operations designing applications that provide operations visibility and metrics.",
       "accomplishments" : [
-        "Built virtual appliance creation and delivery service",
+        "Built virtual appliance provisioning and delivery service",
         "Responsible for design and development of web and mobile applications for operations",
         "Manage global vendor teams for product development and support",
         "Design automated front and back-end build, test, and deployment processes",
@@ -92,8 +92,9 @@
         {
           "name" : "CSS",
           "libraries" : [
+            "Bootstrap",
             "LESS",
-            "Bootstrap"
+            "Sass"
           ]
         },
         {
@@ -123,6 +124,7 @@
         {
           "name" : "JavaScript",
           "libraries" : [
+            "Angular",
             "jQuery",
             "Node.js",
             "Backbone",
@@ -136,6 +138,9 @@
           ]
         },
         {
+          "name" : "Kubernetes"
+        },
+        {
           "name" : "MySQL"
         },
         {
@@ -145,7 +150,16 @@
           "name" : "Oracle"
         },
         {
+          "name" : "Python"
+        },
+        {
           "name" : "RAML"
+        },
+        {
+          "name" : "Scala",
+          "libraries" : [
+            "Apache Spark"
+          ]
         },
         {
           "name" : "Version Control",
